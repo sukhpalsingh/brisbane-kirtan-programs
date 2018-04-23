@@ -27,13 +27,25 @@
                     </div>
                     <div id="mainmenu" class="collapse navbar-collapse">
                         <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item active">
+                            <li
+                                @if ($tab === 'home')
+                                    class="nav-item active"
+                                @else
+                                    class="nav-item"
+                                @endif
+                            >
                                 <a class="nav-link waves-effect waves-light" href="/">
                                     Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li
+                                @if ($tab === 'programs')
+                                    class="nav-item active"
+                                @else
+                                    class="nav-item"
+                                @endif
+                            >
                                 <a class="nav-link waves-effect waves-light" href="/programs">
                                     Programs
                                 </a>

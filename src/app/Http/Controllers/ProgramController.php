@@ -8,6 +8,6 @@ class ProgramController extends Controller
 {
     public function index()
     {
-        return view('programs.list');
+        return view('programs.list', ['tab' => 'programs']);
     }
 }
