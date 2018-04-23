@@ -1,0 +1,54 @@
+@font-face {
+    font-family:Signika;
+    src:url(../fonts/Signika-Regular.ttf) format("truetype")
+   }
+   @font-face {
+    font-family:gurbaniwebthick;
+    src:url(../fonts/gurbaniwebthick.ttf) format("truetype")
+   }
+   @font-face {
+    font-family:WebLipiHeavy;
+    src:url(../fonts/WebLipiHeavy.ttf) format("truetype")
+   }
+   body {
+    font-family:Signika,sans-serif;
+    background-color:#eee
+   }
+   .gurbani-font-1 {
+    font-family:gurbaniwebthick
+   }
+   .gurbani-font-2 {
+    font-family:WebLipiHeavy
+   }
+   #logo-panel {
+    height:100px;
+    padding-top:10px
+   }
+   #logo-panel .navbar {
+    box-shadow:none
+   }
+   .btn-rounded {
+    border-radius:10em
+   }
+   #main-nav {
+    display:block
+   }
+   .card.card-cascade.wider {
+    background-color:#eee
+   }
+   .card.card-cascade.wider .view {
+    min-height:150px;
+    padding-left:65px
+   }
+   .card.card-cascade.wider .card-body {
+    margin:4%;
+    background-color:#fff;
+    margin-bottom:20px;
+    margin-top:-55px
+   }
+   html {
+    background-color:#eee
+   }
+   .font-size-20 {
+    font-size:20px
+   }

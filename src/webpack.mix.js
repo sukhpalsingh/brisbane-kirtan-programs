@@ -21,6 +21,7 @@ mix.scripts([
 mix.styles([
     'node_modules/mdbootstrap/css/bootstrap.min.css',
     'node_modules/mdbootstrap/css/mdb.min.css',
+    'resources/assets/css/app.css',
 ], 'public/build/css/app.css');
 
 mix.copyDirectory('node_modules/mdbootstrap/font', 'public/build');
