@@ -7,7 +7,7 @@
 
         <title>Brisbane Kirtan Programs</title>
 
-        <link href="build/css/app.css" rel="stylesheet" type="text/css">
+        <link href="/build/css/app.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="container">
@@ -58,6 +58,7 @@
                 @yield('content')
             </div>
         </div>
-        <script src="build/js/app.js" type="text/javascript"></script>
+        <script src="/build/js/app.js" type="text/javascript"></script>
+        @yield('scripts')
     </body>
 </html>
