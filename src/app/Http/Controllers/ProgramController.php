@@ -11,7 +11,7 @@ class ProgramController extends Controller
 {
     public function index()
     {
-        $programs = Program::all();
+        $programs = Program::orderBy('start_date')->get();
         return view('programs.list', ['tab' => 'programs', 'programs' => $programs]);
     }
 

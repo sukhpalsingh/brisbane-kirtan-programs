@@ -17,7 +17,7 @@
         @foreach ($programs as $program)
             <div class="card text-center mt-2">
                 <div class="card-header white-text cyan darken-2">
-                    Akhand Kirtan Devaan - {{ $program->start_date }}
+                    Akhand Kirtan Dewaan - {{ $program->start_date }}
                 </div>
                 <div class="card-body">
                     <p class="card-title h3">
@@ -40,6 +40,14 @@
         @endforeach
         </div>
     </div>
+
+@else
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        <p class="alert alert-info">No Akhand Keertan Deewan added.</p>
+    </div>
+</div>
 
 @endif
 

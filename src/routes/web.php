@@ -11,16 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home', ['tab' => 'home']);
-});
+Route::get('/', 'HomeController@index');
 
 Route::resource('/programs', 'ProgramController');
 
 // Login routes
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Not using registration and reset password routes
 // Auth::routes();
