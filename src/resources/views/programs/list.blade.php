@@ -11,24 +11,24 @@
 @if ($programs->count() > 0)
 
     @foreach ($programs as $program)
-        <div class="card card-body">
+        <div class="card card-body text-center">
             <h4 class="card-title">
-                Kirtan Samagam - {{ $program->start_date }}
+                Akhand Kirtan Devaan - {{ $program->start_date }}
             </h4>
-            <p class="card-text">
+            <p class="card-text h4">
                 {{ $program->person_name }}
             </p>
             <p class="card-text">
-                Date: {{ $program->start_date }}
+                {{ $program->start_date }}
             </p>
             <p class="card-text">
-                Time: {{ $program->start_time }} - {{ $program->end_time }}
+                {{ $program->start_time }} - {{ $program->end_time }}
             </p>
 
             <p class="card-text">
-                Address: {{ $program->house_no }}, {{ $program->street }}
+                {{ $program->house_no }} {{ $program->street }}
             </p>
-            <p class="card-text ml-5">
+            <p class="card-text">
                 {{ $program->suburb }}, {{ $program->postcode }}, {{ $program->state }}
             </p>
         </div>

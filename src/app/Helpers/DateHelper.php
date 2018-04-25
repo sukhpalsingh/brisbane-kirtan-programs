@@ -48,6 +48,22 @@ class DateHelper
      * @param String $value
      * @return null|String
      */
+    public static function getDisplayTime($value)
+    {
+        if (empty($value)) {
+            return null;
+        }
+
+        $dateTime = Carbon::createFromFormat('H:i:s', $value);
+        return $dateTime->format('h:i A');
+    }
+
+    /**
+     * Get time in the storage format
+     *
+     * @param String $value
+     * @return null|String
+     */
     public static function getStorageTime($value)
     {
         if (empty($value)) {

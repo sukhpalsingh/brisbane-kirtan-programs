@@ -80,4 +80,26 @@ class Program extends Model
     {
         return DateHelper::getDisplayDate($value);
     }
+
+    /**
+     * Get the program's start time.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getStartTimeAttribute($value)
+    {
+        return DateHelper::getDisplayTime($value);
+    }
+
+    /**
+     * Get the program's end time.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function getEndTimeAttribute($value)
+    {
+        return DateHelper::getDisplayTime($value);
+    }
 }
