@@ -77,10 +77,8 @@
                 </div>
             </div>
         </nav>
-        <div class="container-fluid mb-3">
-            <div class="col-sm-12">
-                @yield('content')
-            </div>
+        <div class="container-fluid">
+            @yield('content')
         </div>
         <script src="/build/js/app.js" type="text/javascript"></script>
         @yield('scripts')
