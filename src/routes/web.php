@@ -13,6 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/programs/previous', 'ProgramController@previousPrograms', ['only' => 'index', 'create', 'store']);
 Route::resource('/programs', 'ProgramController');
 
 // Login routes

@@ -6,13 +6,27 @@ use Illuminate\Http\Request;
 use App\Program;
 use Auth;
 use Redirect;
+use Carbon\Carbon;
 
 class ProgramController extends Controller
 {
     public function index()
     {
-        $programs = Program::orderBy('start_date')->get();
-        return view('programs.list', ['tab' => 'programs', 'programs' => $programs]);
+        $programs = Program::where('start_date', '>=', (new Carbon())->format('Y-m-d'))
+            ->orderBy('start_date')
+            ->get();
+
+        $previousPrograms = Program::where('start_date', '<', (new Carbon())->format('Y-m-d'))
+            ->count();
+
+        return view(
+            'programs.list',
+            [
+                'tab' => 'programs',
+                'programs' => $programs,
+                'previousPrograms' => $previousPrograms > 0 ? true : false
+            ]
+        );
     }
 
     public function create()
@@ -32,5 +46,21 @@ class ProgramController extends Controller
 
         Program::create($request->all());
         return $this->index();
+    }
+
+    public function previousPrograms()
+    {
+        $programs = Program::where('start_date', '<', (new Carbon())->format('Y-m-d'))
+            ->orderBy('start_date')
+            ->get();
+
+        return view(
+            'programs.list',
+            [
+                'tab' => 'programs',
+                'programs' => $programs,
+                'currentPrograms' => true
+            ]
+        );
     }
 }

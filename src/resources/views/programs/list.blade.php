@@ -5,6 +5,12 @@
 @auth
 <div class="row">
     <div class="col-md-12">
+        @if (isset($currentPrograms) && $currentPrograms === true)
+            <a class="btn btn-sm btn-dark cyan darken-2 float-right" href="/programs">Current Programs</a>
+        @endif
+        @if (isset($previousPrograms) && $previousPrograms === true)
+            <a class="btn btn-sm btn-dark cyan darken-2 float-right" href="/programs/previous">Previous Programs</a>
+        @endif
         <a class="btn btn-sm btn-dark cyan darken-2 float-right" href="/programs/create">Add Program</a>
     </div>
 </div>
