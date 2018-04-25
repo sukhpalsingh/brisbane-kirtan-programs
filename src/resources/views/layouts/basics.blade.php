@@ -14,7 +14,29 @@
             <nav id="main-nav" class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="/"><strong>Brisbane Kirtan Programs</strong></a>
                 <div class="float-right">
-                    <a href="/login" class="btn btn-dark cyan darken-2 btn-rounded btn-sm waves-effect waves-light"><strong>Login</strong></a>
+                        @guest
+                            <a href="/login" class="btn btn-dark cyan darken-2 btn-rounded btn-sm waves-effect waves-light"><strong>Login</strong></a>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
                 </div>
             </nav>
         </div>

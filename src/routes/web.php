@@ -16,3 +16,11 @@ Route::get('/', function () {
 });
 
 Route::resource('/programs', 'ProgramController');
+
+// Login routes
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Not using registration and reset password routes
+// Auth::routes();
