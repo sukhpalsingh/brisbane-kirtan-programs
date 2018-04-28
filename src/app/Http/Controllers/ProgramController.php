@@ -15,8 +15,10 @@ class ProgramController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['user', 'manager', 'admin']);
+
         $programs = Program::where('start_date', '>=', (new Carbon())->format('Y-m-d'))
             ->orderBy('start_date')
             ->get();
@@ -34,8 +36,10 @@ class ProgramController extends Controller
         );
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $request->user()->authorizeRoles(['manager', 'admin']);
+
         if (Auth::guest()) {
             return Redirect::guest('login');
         }
@@ -45,6 +49,8 @@ class ProgramController extends Controller
 
     public function store(Request $request)
     {
+        $request->user()->authorizeRoles(['manager', 'admin']);
+
         if (Auth::guest()) {
             return Redirect::guest('login');
         }
@@ -53,8 +59,10 @@ class ProgramController extends Controller
         return $this->index();
     }
 
-    public function previousPrograms()
+    public function previousPrograms(Request $request)
     {
+        $request->user()->authorizeRoles(['user', 'manager', 'admin']);
+
         $programs = Program::where('start_date', '<', (new Carbon())->format('Y-m-d'))
             ->orderBy('start_date')
             ->get();

@@ -13,8 +13,10 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['user', 'manager', 'admin']);
+
         $program = Program::where('start_date', '>=', (new Carbon())->format('Y-m-d'))
             ->orderBy('start_date')
             ->first();
