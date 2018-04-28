@@ -10,6 +10,11 @@ use Carbon\Carbon;
 
 class ProgramController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $programs = Program::where('start_date', '>=', (new Carbon())->format('Y-m-d'))
