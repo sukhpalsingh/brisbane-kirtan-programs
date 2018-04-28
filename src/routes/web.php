@@ -17,9 +17,12 @@ Route::get('/programs/previous', 'ProgramController@previousPrograms', ['only' =
 Route::resource('/programs', 'ProgramController');
 
 // Login routes
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+// Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+// Route::post('login', 'Auth\LoginController@login');
+// Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Not using registration and reset password routes
-// Auth::routes();
+Auth::routes();
+
+Route::get('/verify/token/{token}', 'Auth\VerificationController@verify')->name('auth.verify');
+Route::get('/verify/resend', 'Auth\VerificationController@resend')->name('auth.verify.resend');

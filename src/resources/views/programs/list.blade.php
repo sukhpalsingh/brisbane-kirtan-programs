@@ -2,7 +2,6 @@
 
 @section('content')
 
-@auth
 <div class="row">
     <div class="col-md-12">
         @if (isset($currentPrograms) && $currentPrograms === true)
@@ -11,10 +10,11 @@
         @if (isset($previousPrograms) && $previousPrograms === true)
             <a class="btn btn-sm btn-dark cyan darken-2 float-right" href="/programs/previous">Previous Programs</a>
         @endif
-        <a class="btn btn-sm btn-dark cyan darken-2 float-right" href="/programs/create">Add Program</a>
+        @auth
+            <a class="btn btn-sm btn-dark cyan darken-2 float-right" href="/programs/create">Add Program</a>
+        @endauth
     </div>
 </div>
-@endauth
 
 @if ($programs->count() > 0)
 

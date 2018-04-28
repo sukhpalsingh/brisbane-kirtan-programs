@@ -18,6 +18,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}"><strong>{{ config('app.name', 'Brisbane Kirtan Programs') }}</strong></a>
             </nav>
         </div>
+
+        @include('layouts.partials._notifications')
+
         <div class="container-fluid mb-3">
             <div class="col-sm-12">
                 @yield('content')

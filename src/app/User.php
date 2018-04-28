@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'password', 'verified'
     ];
 
     /**
@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function verificationToken()
+    {
+        return $this->hasOne(VerificationToken::class);
+    }
+
+    public function hasVerified()
+    {
+        return $this->verified;
+    }
+
+    public static function byUserName($username)
+    {
+        return static::where('username', $username);
+    }
 }
